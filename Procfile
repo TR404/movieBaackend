@@ -1,1 +1,1 @@
-web: gunicorn SelfBlog.wsgi --log-file -
+web: gunicorn cinema.wsgi --log-file -
