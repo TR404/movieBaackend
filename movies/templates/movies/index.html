@@ -1,0 +1,37 @@
+{% extends 'movies/base.html'%}
+
+{% load static %}
+{% block content %}
+
+<a href = "{% url 'createProject' %}">Add Movies</a>
+<h3>Kya re bhai log ye apna Login Page ke Menu  ka page h...</h3>
+
+{% for value in pageObj %}
+  
+  {{ value.title }}<br>
+   <a href = "{% url 'viewProject' value.id %}">   {{value.description}}</a>
+    <br>
+{% endfor %}
+
+<div class="pagination">
+    <span class="step-links">
+        {% if pageObj.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ pageObj.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ pageObj.number }} of {{ pageObj.paginator.num_pages }}.
+        </span>
+
+        {% if pageObj.has_next %}
+            <a href="?page={{ pageObj.next_page_number }}">next</a>
+            <a href="?page={{ pageObj.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+
+
+	{% endblock %}
+	
+

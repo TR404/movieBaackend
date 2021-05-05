@@ -1,0 +1,17 @@
+{% extends 'movies/base.html'%}
+
+	<title>Cinama</title>
+
+	
+<body> 
+	{% block content %}
+	<h1>So many peoples are like and use this app. we hope you can also like our service.</h1>
+	<h2>{{error}}</h2>
+	<form method = "POST">
+	 {% csrf_token %} 
+	{{form.as_p}}
+	<button type = "submit">Log In</button>
+	</form>
+</body>
+</html>
+	{% endblock %}

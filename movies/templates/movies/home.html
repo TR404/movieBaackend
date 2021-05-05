@@ -1,0 +1,47 @@
+{% extends 'movies/base.html'%}
+{% load static %}
+{% block content %}
+<!doctype html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+
+	
+	<meta name="description" content="The HTML5 Herald">
+	<meta name="author" content="SitePoint">
+
+	<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+	<h1>Let's Checking...</h1>
+	
+	<script src="js/script.js"></script>
+	
+{% for value in pageObj %}
+  
+   <a href= "{% url 'detailMovie' value.id %}"> {{ value.title }}</a><br>
+    {{value.description}}
+    <br>
+{% endfor %}
+
+<div class="pagination">
+    <span class="step-links">
+        {% if pageObj.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ pageObj.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ pageObj.number }} of {{ pageObj.paginator.num_pages }}.
+        </span>
+
+        {% if pageObj.has_next %}
+            <a href="?page={{ pageObj.next_page_number }}">next</a>
+            <a href="?page={{ pageObj.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+</body>
+</html>
+	{% endblock %}

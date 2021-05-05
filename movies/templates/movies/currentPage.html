@@ -1,0 +1,26 @@
+{% extends 'movies/base.html' %}
+<!DOCTYPE html>
+<html lang = 'eng'>
+<head>
+
+	<title>Current Page</title>
+</head>
+	
+<body>
+
+	
+	{% block content %}
+	<h1>This is Signup Page</h1>
+{% for value in projects %}
+<!--	<a href = "{% url 'viewProject' movies.id %}">{{ value.title }}</a>-->
+<!--<br>-->
+	{{value.title}}
+    {{value.description}}
+    <br>
+{% endfor %}
+
+	
+
+</body>
+</html>
+{% endblock %}

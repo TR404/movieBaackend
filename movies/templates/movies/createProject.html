@@ -1,0 +1,21 @@
+{% extends 'movies/base.html'%}
+<!DOCTYPE html>
+<html lang = 'eng'>
+<head>
+
+	<title>Add Page</title>
+</head>
+	
+<body> 
+	{% block content %}
+	<h1>Create Movies</h1>
+	<h2>{{error}}</h2>
+	<form method = "POST">
+	 {% csrf_token %}  
+	{{form.as_p}}
+	<button type = "submit">Create</button>
+	</form>
+	<a href = "{% url 'index' %}">Go Back </a>
+</body>
+</html>
+	{% endblock %}

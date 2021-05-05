@@ -1,0 +1,15 @@
+{% extends 'movies/base.html'%}
+
+	
+<body> 
+	{% block content %}
+	<h1>For Using This App You can Create This Form</h1>
+	<h2>{{error}}</h2>
+	<form method = "POST">
+	 {% csrf_token %} 
+	{{form.as_p}}
+	<button type = "submit">Sign Up</button>
+	</form>
+</body>
+</html>
+	{% endblock %}
